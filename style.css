@@ -31,6 +31,16 @@ body {
     cursor: pointer;
 }
 
+.cell.x::before {
+    content: 'X';
+    color: red;
+}
+
+.cell.circle::before {
+    content: 'O';
+    color: blue;
+}
+
 .log {
     display: flex;
     flex-direction: column;

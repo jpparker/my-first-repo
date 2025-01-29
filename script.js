@@ -60,3 +60,43 @@ function endGame(draw) {
         logMessage(`Player ${circleTurn ? 'O' : 'X'} wins!`);
     }
     winningMessageElement.classList.add('show');
+}
+
+function isDraw() {
+    return [...cellElements].every(cell => {
+        return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS);
+    });
+}
+
+function placeMark(cell, currentClass) {
+    cell.classList.add(currentClass);
+}
+
+function swapTurns() {
+    circleTurn = !circleTurn;
+    logMessage(`Player ${circleTurn ? 'O' : 'X'}'s turn.`);
+}
+
+function setBoardHoverClass() {
+    board.classList.remove(X_CLASS);
+    board.classList.remove(CIRCLE_CLASS);
+    if (circleTurn) {
+        board.classList.add(CIRCLE_CLASS);
+    } else {
+        board.classList.add(X_CLASS);
+    }
+}
+
+function checkWin(currentClass) {
+    return WINNING_COMBINATIONS.some(combination => {
+        return combination.every(index => {
+            return cellElements[index].classList.contains(currentClass);
+        });
+    });
+}
+
+function logMessage(message) {
+    const li = document.createElement('li');
+    li.textContent = message;
+    logMessages.appendChild(li);
+}
