@@ -7,6 +7,11 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.game-container {
+    display: flex;
+    gap: 20px;
+}
+
 .board {
     display: grid;
     grid-template-columns: repeat(3, 100px);
@@ -24,6 +29,25 @@ body {
     align-items: center;
     font-size: 2em;
     cursor: pointer;
+}
+
+.log {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.log h2 {
+    margin: 0;
+}
+
+.log ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.log li {
+    margin: 5px 0;
 }
 
 .winning-message {
